@@ -34,6 +34,7 @@
   <input type="number" id="valueInput1" name="valueInput1" min="1" value="1">
   <button onclick="renderRectangle(1)">Render Rectangle 1</button>
   <div class="rectangle1" id="rectangle1"></div>
+  <p id="width1"></p>
 
   <label for="dimensionSelect2">Select Dimension:</label>
   <select id="dimensionSelect2">
@@ -74,6 +75,8 @@
       var rectangle = document.getElementById("rectangle" + rectangleNumber);
       rectangle.style.width = width + "px";
       rectangle.style.height = height + "px";
+      document.getElementById("width" + rectangleNumber).textContent = (width / 10).toFixed(2) + " mm";
+
     }
   </script>
 </body>
