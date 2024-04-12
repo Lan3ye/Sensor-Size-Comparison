@@ -60,6 +60,7 @@
   <input type="number" id="valueInput1" name="valueInput1" min="1" value="1">
   <button onclick="renderRectangle(1)">Update</button>
   <input type="checkbox" id="showDiameter1" onchange="toggleTextVisibility(1)" checked>
+  <h3 id="sensorTitle1"></h3>
   
   <div class="rectangle-container" id="rectangleContainer1">
     <div class="rectangle-height" id="height1"></div>
@@ -84,6 +85,8 @@
   <input type="number" id="valueInput2" name="valueInput2" min="1" value="1">
   <button onclick="renderRectangle(2)">Update</button>
   <input type="checkbox" id="showDiameter2" onchange="toggleTextVisibility(2)" checked>
+  <h3 id="sensorTitle2"></h3>
+
 
   <div class="rectangle-container" id="rectangleContainer2">
     <div class="rectangle-height" id="height2"></div>
@@ -136,7 +139,7 @@
       document.getElementById("width" + rectangleNumber).textContent = "\u2190  " + (width).toFixed(2) + " mm" + "  \u2192";
       document.getElementById("height" + rectangleNumber).textContent = "\u2190  " + (height).toFixed(2) + " mm" + "  \u2192";
       document.getElementById("diameter" + rectangleNumber).textContent = "\u2190  " + (diameter).toFixed(2) + " mm" + "  \u2192";
-
+      document.getElementById("sensorTitle" + rectangleNumber).textContent = "test";
     }
     
     function toggleTextVisibility(rectangleNumber) {
