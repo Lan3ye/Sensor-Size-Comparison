@@ -52,6 +52,10 @@
     <option value="Full Frame">Full Frame</option>
     <option value="Custom">Custom</option>
   </select>
+  <select id="ratioSelect1" onchange="renderRectangle(1)">
+    <option value="4:3">4:3</option>
+    <option value="3:2">3:2</option>
+  </select>
   <label for="valueInput1">Enter Diagonal (denominator for 1"):</label>
   <input type="number" id="valueInput1" name="valueInput1" min="1" value="1">
   <button onclick="renderRectangle(1)">Update</button>
@@ -72,6 +76,10 @@
     <option value="Full Frame">Full Frame</option>
     <option value="Custom">Custom</option>
   </select>
+  <select id="ratioSelect2" onchange="renderRectangle(2)">
+    <option value="4:3">4:3</option>
+    <option value="3:2">3:2</option>
+  </select>
   <label for="valueInput2">Enter Diagonal (denominator for 1"):</label>
   <input type="number" id="valueInput2" name="valueInput2" min="1" value="1">
   <button onclick="renderRectangle(2)">Update</button>
@@ -90,10 +98,17 @@
   <script>
     function renderRectangle(rectangleNumber) {
       var sensorType = document.getElementById("sensorSelect" + rectangleNumber).value;
+      var aspectRatio = document.getElementById("ratioSelect" + rectangleNumber).value;
       var value = document.getElementById("valueInput" + rectangleNumber).value;
       var width, height;
       var multiplier = 15;
-      var aspectRatio = 0.75
+
+      if (aspectRatio === "4:3") {
+        aspectRatio = 0.75
+      }
+      else if (aspectRatio === "3:2") {
+        aspectRatio = 2 / 3
+      }
 
       if (sensorType === "Full Frame") {
         width = 36;
@@ -105,13 +120,12 @@
       }
       else if (sensorType === "smaller 1in") {
         value = 16 / value;
-        width = Math.sqrt((value ** 2) / 1.5625); // 1.5625 for 4:3 sensors
-        height = width * 0.75;
+        width = Math.sqrt((value ** 2) / (aspectRatio ** 2 + 1));
+        height = width * aspectRatio;
       }
       else if (sensorType === "Custom") {
-        width = Math.sqrt((value ** 2) / 1.5625);
-        height = width * 0.75;
-        alert(width);
+        width = Math.sqrt((value ** 2) / (aspectRatio ** 2 + 1));
+        height = width * aspectRatio;
       }
 
       var rectangle = document.getElementById("rectangle" + rectangleNumber);
