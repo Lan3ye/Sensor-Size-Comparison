@@ -93,33 +93,35 @@
       var value = document.getElementById("valueInput" + rectangleNumber).value;
       var width, height;
       var multiplier = 15;
+      var aspectRatio = 0.75
 
       if (sensorType === "Full Frame") {
-        width = 36 * multiplier;
-        height = 24 * multiplier;
+        width = 36;
+        height = 24;
       }
       else if (sensorType === "APS-C") {
-        width = 22 * multiplier;
-        height = 14.8 * multiplier;
+        width = 22;
+        height = 14.8;
       }
       else if (sensorType === "smaller 1in") {
-        value = 16 * multiplier / value; // 16 mm diameter * 10
-        width = Math.sqrt((value ** 2) / 1.5625);
+        value = 16 / value;
+        width = Math.sqrt((value ** 2) / 1.5625); // 1.5625 for 4:3 sensors
         height = width * 0.75;
       }
-      // Needs to be fixed, value is just the height, but is supposed to be the diameter.
       else if (sensorType === "Custom") {
-        height = value;
-        width = height / 0.75;
+        width = Math.sqrt((value ** 2) / 1.5625);
+        height = width * 0.75;
+        alert(width);
       }
 
       var rectangle = document.getElementById("rectangle" + rectangleNumber);
-      rectangle.style.width = width + "px";
-      rectangle.style.height = height + "px";
-      diameter = Math.sqrt(height ** 2 + width ** 2)
-      document.getElementById("width" + rectangleNumber).textContent = "\u2190  " + (width / multiplier).toFixed(2) + " mm" + "  \u2192";
-      document.getElementById("height" + rectangleNumber).textContent = "\u2190  " + (height / multiplier).toFixed(2) + " mm" + "  \u2192";
-      document.getElementById("diameter" + rectangleNumber).textContent = "\u2190  " + (diameter / multiplier).toFixed(2) + " mm" + "  \u2192";
+      rectangle.style.width = width * multiplier + "px";
+      rectangle.style.height = height * multiplier + "px";
+      diameter = Math.sqrt(height ** 2 + width ** 2);
+      
+      document.getElementById("width" + rectangleNumber).textContent = "\u2190  " + (width).toFixed(2) + " mm" + "  \u2192";
+      document.getElementById("height" + rectangleNumber).textContent = "\u2190  " + (height).toFixed(2) + " mm" + "  \u2192";
+      document.getElementById("diameter" + rectangleNumber).textContent = "\u2190  " + (diameter).toFixed(2) + " mm" + "  \u2192";
 
     }
     
