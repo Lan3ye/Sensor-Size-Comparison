@@ -104,6 +104,7 @@
       var aspectRatio = document.getElementById("ratioSelect" + rectangleNumber).value;
       var value = document.getElementById("valueInput" + rectangleNumber).value;
       var width, height;
+      var sensorTitle;
       var multiplier = 15;
 
       if (aspectRatio === "4:3") {
@@ -116,12 +117,21 @@
       if (sensorType === "Full Frame") {
         width = 36;
         height = 24;
+        sensorTitle = "Full Frame Sensor";
+
       }
       else if (sensorType === "APS-C") {
         width = 22;
         height = 14.8;
+        sensorTitle = "APS-C Sensor";
       }
       else if (sensorType === "smaller 1in") {
+        if (value === "1"){
+          sensorTitle = "1 inch Sensor";
+        }
+        else {
+          sensorTitle = "1/" + value + " inch Sensor";
+        }
         value = 16 / value;
         width = Math.sqrt((value ** 2) / (aspectRatio ** 2 + 1));
         height = width * aspectRatio;
@@ -129,6 +139,7 @@
       else if (sensorType === "Custom") {
         width = Math.sqrt((value ** 2) / (aspectRatio ** 2 + 1));
         height = width * aspectRatio;
+        sensorTitle = value + " mm Sensor";
       }
 
       var rectangle = document.getElementById("rectangle" + rectangleNumber);
@@ -139,7 +150,7 @@
       document.getElementById("width" + rectangleNumber).textContent = "\u2190  " + (width).toFixed(2) + " mm" + "  \u2192";
       document.getElementById("height" + rectangleNumber).textContent = "\u2190  " + (height).toFixed(2) + " mm" + "  \u2192";
       document.getElementById("diameter" + rectangleNumber).textContent = "\u2190  " + (diameter).toFixed(2) + " mm" + "  \u2192";
-      document.getElementById("sensorTitle" + rectangleNumber).textContent = "test";
+      document.getElementById("sensorTitle" + rectangleNumber).textContent = sensorTitle;
     }
     
     function toggleTextVisibility(rectangleNumber) {
