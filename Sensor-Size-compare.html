@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sensor Size Comparison</title>
 <style>
+  .container {
+    display: grid;
+    grid-template-columns: auto auto; /* two columns */
+  }
+  .left {
+    margin-left: 20px;
+  }
+  .right {
+    margin-right: 200px;
+  }
   .rectangle {
     position: relative; /* Add position relative for positioning text */
     display: flex;
@@ -49,69 +59,77 @@
 </style>
 </head>
 <body onload="renderRectangle(1), renderRectangle(2), renderImage()">
-  <div>
-    <label for="sensorSelect1">Select Dimension:</label>
-    <select id="sensorSelect1" onchange="renderRectangle(1)">
-      <option value="smaller 1in">Smaller 1in (e.g. 1/3")</option>
-      <option value="APS-C">APS-C</option>
-      <option value="Full Frame">Full Frame</option>
-      <option value="Custom">Custom</option>
-    </select>
-    <select id="ratioSelect1" onchange="renderRectangle(1)">
-      <option value="4:3">4:3</option>
-      <option value="3:2">3:2</option>
-    </select>
-  </div>
-  <div>
-    <label for="valueInput1">Enter Diagonal (denominator for 1"):</label>
-    <input type="number" id="valueInput1" name="valueInput1" min="1" value="1" onchange="renderRectangle(1)">
-    <!-- <button onclick="renderRectangle(1)">Update</button> -->
-    <input type="checkbox" id="showDiameter1" onchange="toggleTextVisibility(1)" checked>
-  </div>
-    <div class="sensorTitle">
-    <h3 id="sensorTitle1"></h3>
-  </div>
-  
-  <div class="rectangle-container" id="rectangleContainer1">
-    <div class="rectangle-height" id="height1"></div>
-    <div class="rectangle1" id="rectangle1">
-      <div class="diameter" id="diameter1"></div>
-    </div>
-  </div>
-  <div class="rectangle-width" id="width1"></div>
-  
-  <div>
-    <label for="sensorSelect2">Select Dimension:</label>
-    <select id="sensorSelect2" onchange="renderRectangle(2)">
-      <option value="smaller 1in">Smaller 1in (e.g. 1/3")</option>
-      <option value="APS-C">APS-C</option>
-      <option value="Full Frame">Full Frame</option>
-      <option value="Custom">Custom</option>
-    </select>
-    <select id="ratioSelect2" onchange="renderRectangle(2)">
-      <option value="4:3">4:3</option>
-      <option value="3:2">3:2</option>
-    </select>
-  </div>
-  <div>
-    <label for="valueInput2">Enter Diagonal (denominator for 1"):</label>
-    <input type="number" id="valueInput2" name="valueInput2" min="1" value="1">
-    <input type="checkbox" id="showDiameter2" onchange="toggleTextVisibility(2)" checked>
-  </div>
-    <div class="sensorTitle">
-    <h3 id="sensorTitle2"></h3>
-  </div>
+  <div class="container">  
+    <div class="left">
+      <div>
+        <label for="sensorSelect1">Select Dimension:</label>
+        <select id="sensorSelect1" onchange="renderRectangle(1)">
+          <option value="smaller 1in">Smaller 1in (e.g. 1/3")</option>
+          <option value="APS-C">APS-C</option>
+          <option value="Full Frame">Full Frame</option>
+          <option value="Custom">Custom</option>
+        </select>
+        <select id="ratioSelect1" onchange="renderRectangle(1)">
+          <option value="4:3">4:3</option>
+          <option value="3:2">3:2</option>
+        </select>
+      </div>
+      <div>
+        <label for="valueInput1">Enter Diagonal (denominator for 1"):</label>
+        <input type="number" id="valueInput1" name="valueInput1" min="1" value="1" onchange="renderRectangle(1)">
+        <!-- <button onclick="renderRectangle(1)">Update</button> -->
+        <input type="checkbox" id="showDiameter1" onchange="toggleTextVisibility(1)" checked>
+      </div>
+        <div class="sensorTitle">
+        <h3 id="sensorTitle1"></h3>
+      </div>
+      
+      <div class="rectangle-container" id="rectangleContainer1">
+        <div class="rectangle-height" id="height1"></div>
+        <div class="rectangle1" id="rectangle1">
+          <div class="diameter" id="diameter1"></div>
+        </div>
+      </div>
+      <div class="rectangle-width" id="width1"></div>
+      
+      <div>
+        <label for="sensorSelect2">Select Dimension:</label>
+        <select id="sensorSelect2" onchange="renderRectangle(2)">
+          <option value="smaller 1in">Smaller 1in (e.g. 1/3")</option>
+          <option value="APS-C">APS-C</option>
+          <option value="Full Frame">Full Frame</option>
+          <option value="Custom">Custom</option>
+        </select>
+        <select id="ratioSelect2" onchange="renderRectangle(2)">
+          <option value="4:3">4:3</option>
+          <option value="3:2">3:2</option>
+        </select>
+      </div>
+      <div>
+        <label for="valueInput2">Enter Diagonal (denominator for 1"):</label>
+        <input type="number" id="valueInput2" name="valueInput2" min="1" value="1">
+        <input type="checkbox" id="showDiameter2" onchange="toggleTextVisibility(2)" checked>
+      </div>
+        <div class="sensorTitle">
+        <h3 id="sensorTitle2"></h3>
+      </div>
 
 
-  <div class="rectangle-container" id="rectangleContainer2">
-    <div class="rectangle-height" id="height2"></div>
-    <div class="rectangle2" id="rectangle2">
-      <div class="diameter" id="diameter2"></div>
+      <div class="rectangle-container" id="rectangleContainer2">
+        <div class="rectangle-height" id="height2"></div>
+        <div class="rectangle2" id="rectangle2">
+          <div class="diameter" id="diameter2"></div>
+        </div>
+      </div>
+      <div class="rectangle-width" id="width2"></div>
+    <!-- Fuer die Berechung der Pixel: 16.25 * 15
+      <img id="image" src="./img/1_euro_cent_common.webp" alt="Euro Cent for reference" width="244" height="244">  -->
+    </div>
+
+    <div class="right">
+      <img src="./img/Phone.svg" alt="Clipart of Smartphone">
     </div>
   </div>
-  <div class="rectangle-width" id="width2"></div>
-<!-- Fuer die Berechung der Pixel: 16.25 * 15 -->
-  <img id="image" src="./img/1_euro_cent_common.webp" alt="Euro Cent for reference" width="244" height="244"> 
 
   <script>
     function renderRectangle(rectangleNumber) {
