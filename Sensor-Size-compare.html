@@ -113,35 +113,38 @@
       else if (aspectRatio === "3:2") {
         aspectRatio = 2 / 3
       }
-
-      if (sensorType === "Full Frame") {
-        width = 36;
-        height = 24;
-        sensorTitle = "Full Frame Sensor";
-
+      
+      switch (sensorType) {
+        case "Full Frame":
+          width = 36;
+          height = 24;
+          sensorTitle = "Full Frame Sensor";
+          break;
+        case "APS-C":
+          width = 22;
+          height = 14.8;
+          sensorTitle = "APS-C Sensor";
+          break;
+        case "smaller 1in":
+          if (value === "1"){
+            sensorTitle = "1 inch Sensor";
+          }
+          else {
+            sensorTitle = "1/" + value + " inch Sensor";
+          }
+          value = 16 / value;
+          width = Math.sqrt((value ** 2) / (aspectRatio ** 2 + 1));
+          height = width * aspectRatio;
+          break;
+        case "Custom":
+          width = Math.sqrt((value ** 2) / (aspectRatio ** 2 + 1));
+          height = width * aspectRatio;
+          sensorTitle = value + " mm Sensor";
+          break;
+        default:
+          alert();
       }
-      else if (sensorType === "APS-C") {
-        width = 22;
-        height = 14.8;
-        sensorTitle = "APS-C Sensor";
-      }
-      else if (sensorType === "smaller 1in") {
-        if (value === "1"){
-          sensorTitle = "1 inch Sensor";
-        }
-        else {
-          sensorTitle = "1/" + value + " inch Sensor";
-        }
-        value = 16 / value;
-        width = Math.sqrt((value ** 2) / (aspectRatio ** 2 + 1));
-        height = width * aspectRatio;
-      }
-      else if (sensorType === "Custom") {
-        width = Math.sqrt((value ** 2) / (aspectRatio ** 2 + 1));
-        height = width * aspectRatio;
-        sensorTitle = value + " mm Sensor";
-      }
-
+      
       var rectangle = document.getElementById("rectangle" + rectangleNumber);
       rectangle.style.width = width * multiplier + "px";
       rectangle.style.height = height * multiplier + "px";
