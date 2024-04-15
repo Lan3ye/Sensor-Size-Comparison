@@ -71,9 +71,14 @@
     margin-bottom: 0px;
   }
   .phone-svg {
+    position: relative;
     margin-top: 80px;
     width: 100%; /* Adjust the width as a percentage of its container */
     height: auto; /* Automatically adjust the height while maintaining aspect ratio */
+  }
+  .sensor-on-phone {
+    position: absolute;
+
   }
 </style>
 </head>
@@ -132,8 +137,6 @@
         <div class="sensorTitle">
         <h3 id="sensorTitle2"></h3>
       </div>
-
-
       <div class="rectangle-container" id="rectangleContainer2">
         <div class="rectangle-height" id="height2"></div>
         <div class="rectangle2" id="rectangle2">
@@ -147,12 +150,21 @@
 
     <div class="right">
       <div class="phone-svg" viewBox="0 0 100 100">
-        <img src="./img/Phone.svg" alt="Clipart of Smartphone">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200">
+          <!-- Smartphone Body -->
+          <rect x="2" y="2" width="71" height="147" rx="10" ry="10" fill="none" stroke="black" stroke-width="2"/>
+          <rect x="7" y="7" width="40" height="40" rx="10" ry="10" fill="none" stroke="black" stroke-width="2"/>
+          <!-- Camera -->
+          <circle cx="18" cy="17" r="8" fill="black"/> 
+          <circle cx="36" cy="26" r="8" fill="black"/> 
+          <circle cx="18" cy="37" r="8" fill="black"/> 
+        </svg>
+        <rect x="50" y="50" width="100" height="100" fill="red" opacity="0.5"/>
         <div class="sensor-on-phone">
           <div class="rectangle-container" id="rectangleContainer1">
             <div class="rectangle-height" id="height1"></div>
-            <div class="rectangle1" id="rectangle1">
-              <!-- <div class="diameter" id="diameter1"></div> -->
+            <div class="phone-sensor" id="phone-sensor">
+              <div class="diameter" id="diameter1"></div>
             </div>
           </div>
           <div class="rectangle-width" id="width1"></div>
@@ -221,7 +233,9 @@
       document.getElementById("sensorTitle" + rectangleNumber).textContent = sensorTitle;
 
       // Drawing rectangle on the phone
-
+      var phoneSensor = document.getElementById("phone-sensor");
+      phoneSensor.style.width = width * multiplier + "px";
+      phoneSensor.style.height = height * multiplier + "px";
     }
     
     function toggleTextVisibility(rectangleNumber) {
