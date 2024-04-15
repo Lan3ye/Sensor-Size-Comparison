@@ -77,7 +77,7 @@
   }
 </style>
 </head>
-<body onload="renderRectangle(1), renderRectangle(2), renderImage()">
+<body onload="renderRectangle(1), renderRectangle(2)">
   <div class="container">  
     <div class="left">
       <div>
@@ -148,6 +148,15 @@
     <div class="right">
       <div class="phone-svg" viewBox="0 0 100 100">
         <img src="./img/Phone.svg" alt="Clipart of Smartphone">
+        <div class="sensor-on-phone">
+          <div class="rectangle-container" id="rectangleContainer1">
+            <div class="rectangle-height" id="height1"></div>
+            <div class="rectangle1" id="rectangle1">
+              <!-- <div class="diameter" id="diameter1"></div> -->
+            </div>
+          </div>
+          <div class="rectangle-width" id="width1"></div>
+        </div>
       </div>
     </div>
   </div>
@@ -199,30 +208,26 @@
           alert();
       }
       
+      // Drawing rectangle on the left page
       var rectangle = document.getElementById("rectangle" + rectangleNumber);
       rectangle.style.width = width * multiplier + "px";
       rectangle.style.height = height * multiplier + "px";
       diameter = Math.sqrt(height ** 2 + width ** 2);
       
+      // Setting sensor measurements
       document.getElementById("width" + rectangleNumber).textContent = "\u2190  " + (width).toFixed(2) + " mm" + "  \u2192";
       document.getElementById("height" + rectangleNumber).textContent = "\u2190  " + (height).toFixed(2) + " mm" + "  \u2192";
       document.getElementById("diameter" + rectangleNumber).textContent = "\u2190  " + (diameter).toFixed(2) + " mm" + "  \u2192";
       document.getElementById("sensorTitle" + rectangleNumber).textContent = sensorTitle;
+
+      // Drawing rectangle on the phone
+
     }
     
     function toggleTextVisibility(rectangleNumber) {
       var checkbox = document.getElementById("showDiameter" + rectangleNumber);
       var textElement = document.getElementById("diameter" + rectangleNumber);
       textElement.style.display = checkbox.checked ? "block" : "none";
-    }
-
-    function renderImage() {
-      var img = document.getElementById("image");
-
-      var newSize = 16.25 * multiplier;
-
-      img.width = newSize + "px";
-      img.height = newSize + "px";
     }
   </script>
 </body>
