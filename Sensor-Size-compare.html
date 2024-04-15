@@ -11,10 +11,19 @@
   }
   .left {
     margin-left: 20px;
-    margin-top: 40px;
+    margin-top: 20px;
   }
   .right {
     margin-right: 200px;
+  }
+  .select-dimension {
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .select {
+    font-size: large;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: 5px;
   }
   .rectangle {
     position: relative; /* Add position relative for positioning text */
@@ -68,14 +77,14 @@
   <div class="container">  
     <div class="left">
       <div>
-        <label for="sensorSelect1">Select Dimension:</label>
-        <select id="sensorSelect1" onchange="renderRectangle(1)">
+        <label class="select-dimension" for="sensorSelect1">Select Dimension:</label>
+        <select class="select" id="sensorSelect1" onchange="renderRectangle(1)">
           <option value="smaller 1in">Smaller 1in (e.g. 1/3")</option>
           <option value="APS-C">APS-C</option>
           <option value="Full Frame">Full Frame</option>
           <option value="Custom">Custom</option>
         </select>
-        <select id="ratioSelect1" onchange="renderRectangle(1)">
+        <select class="select" id="ratioSelect1" onchange="renderRectangle(1)">
           <option value="4:3">4:3</option>
           <option value="3:2">3:2</option>
         </select>
@@ -99,14 +108,14 @@
       <div class="rectangle-width" id="width1"></div>
       
       <div>
-        <label for="sensorSelect2">Select Dimension:</label>
-        <select id="sensorSelect2" onchange="renderRectangle(2)">
+        <label class="select-dimension" for="sensorSelect2">Select Dimension:</label>
+        <select class="select" id="sensorSelect2" onchange="renderRectangle(2)">
           <option value="smaller 1in">Smaller 1in (e.g. 1/3")</option>
           <option value="APS-C">APS-C</option>
           <option value="Full Frame">Full Frame</option>
           <option value="Custom">Custom</option>
         </select>
-        <select id="ratioSelect2" onchange="renderRectangle(2)">
+        <select class="select" id="ratioSelect2" onchange="renderRectangle(2)">
           <option value="4:3">4:3</option>
           <option value="3:2">3:2</option>
         </select>
