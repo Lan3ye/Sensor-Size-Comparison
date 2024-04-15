@@ -25,6 +25,10 @@
     font-family: Arial, Helvetica, sans-serif;
     margin-left: 5px;
   }
+  .diagonal-label {
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+  }
   .rectangle {
     position: relative; /* Add position relative for positioning text */
     display: flex;
@@ -90,7 +94,7 @@
         </select>
       </div>
       <div>
-        <label for="valueInput1">Enter Diagonal (denominator for 1"):</label>
+        <label class="diagonal-label" for="valueInput1">Enter Diagonal (denominator for 1"):</label>
         <input type="number" id="valueInput1" name="valueInput1" min="1" value="1" onchange="renderRectangle(1)">
         <!-- <button onclick="renderRectangle(1)">Update</button> -->
         <input type="checkbox" id="showDiameter1" onchange="toggleTextVisibility(1)" checked>
@@ -121,7 +125,7 @@
         </select>
       </div>
       <div>
-        <label for="valueInput2">Enter Diagonal (denominator for 1"):</label>
+        <label class="diagonal-label" for="valueInput2">Enter Diagonal (denominator for 1"):</label>
         <input type="number" id="valueInput2" name="valueInput2" min="1" value="1">
         <input type="checkbox" id="showDiameter2" onchange="toggleTextVisibility(2)" checked>
       </div>
