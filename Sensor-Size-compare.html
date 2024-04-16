@@ -152,6 +152,7 @@
       <div class="phone-svg" viewBox="0 0 100 100">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 200">
           <!-- Smartphone Body -->
+          <!-- 70.6×146.6×8.3 millimeters (iPhone 15 Pro) | 1px = 1mm -->
           <rect x="2" y="2" width="71" height="147" rx="10" ry="10" fill="none" stroke="black" stroke-width="2"/>
           <rect x="7" y="7" width="40" height="40" rx="10" ry="10" fill="none" stroke="black" stroke-width="2"/>
           <!-- Camera -->
@@ -160,7 +161,7 @@
           <circle cx="18" cy="37" r="8" fill="black"/> 
 
           <!-- Sensor -->
-          <rect class="sensor-on-phone" id="sensor-on-phone" x="50" y="50" width="100" height="100" fill="red" opacity="0.5"/>
+          <rect class="sensor-on-phone" id="sensor-on-phone" x="20" y="20" width="100" height="100" fill="red" opacity="0.5"/>
         </svg>
       </div>
     </div>
@@ -227,8 +228,8 @@
 
       // Drawing rectangle on the phone
       var phoneSensor = document.getElementById("sensor-on-phone");
-      phoneSensor.style.width = 20 + "px";
-      phoneSensor.style.height = 20 + "px";
+      phoneSensor.style.width = height + "px";
+      phoneSensor.style.height = width + "px";
     }
     
     function toggleTextVisibility(rectangleNumber) {
