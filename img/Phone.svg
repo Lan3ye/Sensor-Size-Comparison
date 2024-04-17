@@ -6,6 +6,8 @@
     <circle cx="18" cy="17" r="8" fill="black"/> 
     <circle cx="36" cy="26" r="8" fill="black"/> 
     <circle cx="18" cy="37" r="8" fill="black"/> 
+    
+    <circle cx="18" cy="17" r="2" fill="white"/> 
 <!-- Flash -->
     <!-- <rect x="45" y="45" width="10" height="5" fill="black"/> -->
   </svg>
