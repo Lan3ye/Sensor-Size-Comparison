@@ -131,7 +131,7 @@
       </div>
       <div>
         <label class="diagonal-label" for="valueInput2">Enter Diagonal (denominator for 1"):</label>
-        <input type="number" id="valueInput2" name="valueInput2" min="1" value="1">
+        <input type="number" id="valueInput2" name="valueInput2" min="1" value="1" onchange="renderRectangle(2)">
         <input type="checkbox" id="showDiameter2" onchange="toggleTextVisibility(2)" checked>
       </div>
         <div class="sensorTitle">
@@ -181,13 +181,14 @@
 
       if (value < 1) {
         value = 1;
+  
       }
-
+      alert();
       if (aspectRatio === "4:3") {
-        aspectRatio = 0.75
+        aspectRatio = 0.75;
       }
       else if (aspectRatio === "3:2") {
-        aspectRatio = 2 / 3
+        aspectRatio = 2 / 3;
       }
 
       switch (sensorType) {
