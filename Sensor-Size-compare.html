@@ -231,8 +231,13 @@
 
       // Drawing rectangle on the phone
       var phoneSensor = document.getElementById("sensor-on-phone");
-      phoneSensor.setAttribute('x', 19 - (width / 2))
-      phoneSensor.setAttribute('y', 15.5 - (height / 2))
+      if (document.getElementById("valueInput" + rectangleNumber).value == 1) {
+        phoneSensor.setAttribute('x', 13.2);
+      }
+      else {
+        phoneSensor.setAttribute('x', 19 - (width / 2));
+      }
+      phoneSensor.setAttribute('y', 15.5 - (height / 2));
       phoneSensor.style.width = height + "px";
       phoneSensor.style.height = width + "px";
     }
