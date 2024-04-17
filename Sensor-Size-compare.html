@@ -26,7 +26,12 @@
     margin-left: 5px;
   }
   .diagonal-label {
+    margin-top: auto;
     font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+  .diagonal-input {
+    font-size: large;
     font-family: Arial, Helvetica, sans-serif;
   }
   .rectangle {
@@ -99,8 +104,8 @@
         </select>
       </div>
       <div>
-        <label class="diagonal-label" for="valueInput1">Enter Diagonal (denominator for 1"):</label>
-        <input type="number" id="valueInput1" name="valueInput1" min="1" value="1.28" onchange="renderRectangle(1)">
+        <label class="diagonal-label" for="valueInput1">Enter Diagonal 1/</label>
+        <input class="diagonal-input" type="number" id="valueInput1" name="valueInput1" min="1" value="1.28" onchange="renderRectangle(1)">
         <!-- <button onclick="renderRectangle(1)">Update</button> -->
         <input type="checkbox" id="showDiameter1" onchange="toggleTextVisibility(1)" checked>
       </div>
@@ -130,8 +135,8 @@
         </select>
       </div>
       <div>
-        <label class="diagonal-label" for="valueInput2">Enter Diagonal (denominator for 1"):</label>
-        <input type="number" id="valueInput2" name="valueInput2" min="1" value="1" onchange="renderRectangle(2)">
+        <label class="diagonal-label" for="valueInput2">Enter Diagonal 1/</label>
+        <input class="diagonal-input" type="number" id="valueInput2" name="valueInput2" min="1" value="1" onchange="renderRectangle(2)">
         <input type="checkbox" id="showDiameter2" onchange="toggleTextVisibility(2)" checked>
       </div>
         <div class="sensorTitle">
