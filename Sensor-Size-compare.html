@@ -104,7 +104,7 @@
         </select>
       </div>
       <div>
-        <label class="diagonal-label" for="valueInput1">Enter Diagonal 1/</label>
+        <label class="diagonal-label" id="diagonal-label1" for="valueInput1">Enter Diagonal 1/</label>
         <input class="diagonal-input" type="number" id="valueInput1" name="valueInput1" min="1" value="1.28" onchange="renderRectangle(1)">
         <!-- <button onclick="renderRectangle(1)">Update</button> -->
         <input type="checkbox" id="showDiameter1" onchange="toggleTextVisibility(1)" checked>
@@ -135,7 +135,7 @@
         </select>
       </div>
       <div>
-        <label class="diagonal-label" for="valueInput2">Enter Diagonal 1/</label>
+        <label class="diagonal-label" id="diagonal-label2" for="valueInput2">Enter Diagonal 1/</label>
         <input class="diagonal-input" type="number" id="valueInput2" name="valueInput2" min="1" value="1" onchange="renderRectangle(2)">
         <input type="checkbox" id="showDiameter2" onchange="toggleTextVisibility(2)" checked>
       </div>
@@ -179,7 +179,9 @@
     function renderRectangle(rectangleNumber) {
       var sensorType = document.getElementById("sensorSelect" + rectangleNumber).value;
       var aspectRatio = document.getElementById("ratioSelect" + rectangleNumber).value;
-      var value = document.getElementById("valueInput" + rectangleNumber).value;
+      var diagonalLabel = document.getElementById("diagonal-label" + rectangleNumber);
+      var diagonalInput = document.getElementById("valueInput" + rectangleNumber);
+      var value = diagonalInput.value;
       var width, height;
       var sensorTitle;
       var multiplier = 15;
@@ -197,16 +199,22 @@
 
       switch (sensorType) {
         case "Full Frame":
+          diagonalLabel.style.display = "none";
+          diagonalInput.style.display = "none";
           width = 36;
           height = 24;
           sensorTitle = "Full Frame Sensor";
           break;
         case "APS-C":
+          diagonalLabel.style.display = "none";
+          diagonalInput.style.display = "none";
           width = 22;
           height = 14.8;
           sensorTitle = "APS-C Sensor";
           break;
         case "smaller 1in":
+          diagonalLabel.style.display = "inline";
+          diagonalInput.style.display = "inline";
           if (value === "1"){
             sensorTitle = "1 inch Sensor";
           }
@@ -218,6 +226,9 @@
           height = width * aspectRatio;
           break;
         case "Custom":
+          diagonalLabel.style.display = "inline";
+          diagonalInput.style.display = "inline";
+          diagonalLabel.textContent = "Enter Diagonal (mm) :"
           width = Math.sqrt((value ** 2) / (aspectRatio ** 2 + 1));
           height = width * aspectRatio;
           sensorTitle = value + " mm Sensor";
