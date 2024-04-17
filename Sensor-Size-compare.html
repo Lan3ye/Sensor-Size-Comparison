@@ -179,6 +179,10 @@
       var sensorTitle;
       var multiplier = 15;
 
+      if (value < 1) {
+        value = 1;
+      }
+
       if (aspectRatio === "4:3") {
         aspectRatio = 0.75
       }
